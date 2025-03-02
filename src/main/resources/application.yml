@@ -11,6 +11,16 @@ spring:
   h2: # h2 콘솔 활성화
     console:
       enabled: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google: # 아래 인증값은 깃허브 같은 외부 사이트에 절대로 업로드하면 안 됨!!!!!
+            client-id:
+            client-secret:
+            scope:
+              - email
+              - profile
 jwt:
   issuer: ajufresh@gmail.com
   secret_key: study-springboot

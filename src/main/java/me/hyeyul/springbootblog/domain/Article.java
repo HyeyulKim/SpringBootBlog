@@ -36,8 +36,12 @@ public class Article {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @Column(name = "author", nullable = false)
+    private String author;
+
     @Builder // 빌더 패턴으로 객체 생성: 어느 필드에 어떤 값이 들어가는지 명시적으로 파악
-    public Article(String title, String content) {
+    public Article(String author, String title, String content) {
+        this.author = author;
         this.title = title;
         this.content = content;
     }
