@@ -46,30 +46,6 @@ if (modifyButton) {
     });
 }
 
-
-// 등록 기능
-// id가 create-btn인 엘리먼트
-const createButton = document.getElementById("create-btn");
-
-if (createButton) {
-    // 클릭 이벤트가 감지되면 생성 API 요청
-    createButton.addEventListener("click", (event) => {
-        fetch("/api/articles", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                title: document.getElementById("title").value,
-                content: document.getElementById("content").value,
-            }),
-        }).then(() => {
-            alert("등록 완료되었습니다.");
-            location.replace("/articles");
-        });
-    });
-}
-
 // 생성 기능
 const createButton = document.getElementById('create-btn');
 
@@ -82,6 +58,10 @@ if (createButton) {
         });
         function success() {
             alert('등록 완료되었습니다.');
+            location.replace('/articles');
+        }
+        function fail() {
+            alert('등록 실패했습니다.');
             location.replace('/articles');
         }
 
