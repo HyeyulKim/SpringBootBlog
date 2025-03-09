@@ -32,7 +32,7 @@ public class BlogService {
     // 없으면 IllegalArgumentException 예외 발생
     public Article findById(long id) {
         return blogRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("not found : " + id));
     }
 
     public void delete(long id) {
@@ -46,7 +46,7 @@ public class BlogService {
     @Transactional // 트랜잭션 메서드: 매칭한 메서드를 하나의 트랜잭션으로 묶는 역할
     public Article update(long id, UpdateArticleRequest request) {
         Article article = blogRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("not found : " + id));
 
         authorizeArticleAuthor(article);
         article.update(request.getTitle(), request.getContent());

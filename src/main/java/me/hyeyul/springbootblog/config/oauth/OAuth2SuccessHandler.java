@@ -28,13 +28,13 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
     private final TokenProvider tokenProvider;
     private final RefreshTokenRepository refreshTokenRepository;
-    private final OAuth2AuthorizationRequestBasedOnCookieRepository authorizationRequestBasedOnCookieRepository;
+    private final OAuth2AuthorizationRequestBasedOnCookieRepository authorizationRequestRepository;
     private final UserService userService;
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
-        OAuth2User oaUth2User = (OAuth2User) authentication.getPrincipal();
-        User user = userService.findByEmail((String) oaUth2User.getAttributes().get("email"));
+        OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
+        User user = userService.findByEmail((String) oAuth2User.getAttributes().get("email"));
 
         // 리프레시 토큰 생성 -> 저장 -> 쿠키에 저장
         String refreshToken = tokenProvider.generateToken(user, REFRESH_TOKEN_DURATION);
@@ -68,7 +68,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     // 인증 관련 설정값, 쿠키 제거
     private void clearAuthenticationAttributes(HttpServletRequest request, HttpServletResponse response) {
         super.clearAuthenticationAttributes(request);
-        authorizationRequestBasedOnCookieRepository.removeAuthorizationRequestCookies(request, response); // OAuth 인증을 위해 저장된 정보도 삭제
+        authorizationRequestRepository.removeAuthorizationRequestCookies(request, response);
     }
 
     // 액세스 토큰을 패스에 추가

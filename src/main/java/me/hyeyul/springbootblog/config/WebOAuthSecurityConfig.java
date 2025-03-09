@@ -58,15 +58,14 @@ public class WebOAuthSecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/api/token")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/**")).authenticated()
                         .anyRequest().permitAll())
-                        .oauth2Login(oauth2 -> oauth2
-                                .loginPage("/login")
-                                // Authorization 요청과 관련된 상태 저장
-                                .authorizationEndpoint(authorizationEndpoint ->
-                                        authorizationEndpoint.authorizationRequestRepository(oAuth2AuthorizationRequestBasedOnCookieRepoistory()))
-                                .userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint.userService(oAuth2UserCustomService))
-                                // 인증 성공 시 실행할 핸들러
-                                .successHandler(oAuth2SuccessHandler())
-                        )
+                .oauth2Login(oauth2 -> oauth2
+                        .loginPage("/login")
+                        // Authorization 요청과 관련된 상태 저장
+                        .authorizationEndpoint(authorizationEndpoint -> authorizationEndpoint.authorizationRequestRepository(oAuth2AuthorizationRequestBasedOnCookieRepository()))
+                        .userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint.userService(oAuth2UserCustomService))
+                        // 인증 성공 시 실행할 핸들러
+                        .successHandler(oAuth2SuccessHandler())
+                )
                 // /api로 시작하는 url인 경우 401 상태 코드를 반환하도록 예외 처리
                 .exceptionHandling(exceptionHandling -> exceptionHandling
                         .defaultAuthenticationEntryPointFor(
@@ -76,10 +75,11 @@ public class WebOAuthSecurityConfig {
                 .build();
     }
 
+    @Bean
     public OAuth2SuccessHandler oAuth2SuccessHandler() {
         return new OAuth2SuccessHandler(tokenProvider,
                 refreshTokenRepository,
-                oAuth2AuthorizationRequestBasedOnCookieRepoistory(),
+                oAuth2AuthorizationRequestBasedOnCookieRepository(),
                 userService
         );
     }
@@ -90,7 +90,7 @@ public class WebOAuthSecurityConfig {
     }
 
     @Bean
-    public OAuth2AuthorizationRequestBasedOnCookieRepository oAuth2AuthorizationRequestBasedOnCookieRepoistory() {
+    public OAuth2AuthorizationRequestBasedOnCookieRepository oAuth2AuthorizationRequestBasedOnCookieRepository() {
         return new OAuth2AuthorizationRequestBasedOnCookieRepository();
     }
 
