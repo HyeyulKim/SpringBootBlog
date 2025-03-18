@@ -13,11 +13,11 @@ spring:
       client:
         registration:
           google: # 아래 인증값은 깃허브 같은 외부 사이트에 절대로 업로드하면 안 됨!!!!!
-            client-id:
-            client-secret:
+            client-id: test_id
+            client-secret: test_secret
             scope:
               - email
               - profile
 jwt:
   issuer: ajufresh@gmail.com
-  secret_key: study-springboot
+  secret_key: test_key
