@@ -1,4 +1,6 @@
-# SpringBootBlog
+![image](https://github.com/user-attachments/assets/72cf91b2-33e6-470a-9d0a-f1e1cadf1953)# SpringBootBlog
+
+<a href="[https://github.com](http://springboot-blog-env.eba-upn4r5dq.ap-northeast-2.elasticbeanstalk.com/login)" target="_blank">블로그 바로가기</a>
 
 ## 1. 주요 기능
    - 사용자 관리:
@@ -7,12 +9,18 @@
 ## 2. DB 설계
 
 ## 3. API 설계
-   
+
+<img src="https://github.com/user-attachments/assets/ce900d67-addf-4e63-aeab-f67fe7a6bced" width="100" style="margin-left: 20px;" />
+<img src="" width="100" style="margin-left: 20px;" />
+<img src="" width="100" style="margin-left: 20px;" />
+
 ![image](https://github.com/user-attachments/assets/ce900d67-addf-4e63-aeab-f67fe7a6bced)
 ![image](https://github.com/user-attachments/assets/02cb54ff-fd94-4c1a-a77e-9ba9b0391cd1)
 ![image](https://github.com/user-attachments/assets/89492375-147f-48d4-9803-6fda45d0d180)
 
 ## 4. 구현 화면
+
+
 
 ![image](https://github.com/user-attachments/assets/3a71c4b8-b029-4ce4-b03d-84ad1aa77a99)
 ![image](https://github.com/user-attachments/assets/7e789d96-6d9f-456e-be70-0530a2bf70b6)
