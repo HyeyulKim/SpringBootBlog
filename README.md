@@ -1,6 +1,6 @@
 # SpringBootBlog
 
-<a href="[https://github.com](http://springboot-blog-env.eba-upn4r5dq.ap-northeast-2.elasticbeanstalk.com/login)" target="_blank">블로그 바로가기</a>
+<a href="http://springboot-blog-env.eba-upn4r5dq.ap-northeast-2.elasticbeanstalk.com/login" target="_blank">블로그 바로가기</a>
 
 ## 1. 주요 기능
    - 사용자 관리:
