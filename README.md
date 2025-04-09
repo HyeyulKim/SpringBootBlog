@@ -26,7 +26,9 @@
 
 ## 3. DB 설계
 
-
+![image](https://github.com/user-attachments/assets/a7749075-1f9f-442f-a286-8181b55da81f)
+![image](https://github.com/user-attachments/assets/01378557-d14e-4b1a-a433-9695006c9242)
+![image](https://github.com/user-attachments/assets/b7b18fd5-b5f4-4f97-af13-d371d9589355)
 
 ## 4. API 설계
 
