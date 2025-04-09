@@ -6,21 +6,23 @@
  - 사용자: 구글 로그인, 로그아웃
  - 게시글: 게시글 작성/수정/삭제/조회
 
-## 2. 기술 스택
- - Language
-    - Java 17
-      
- - Framework & Libraries
-    - Spring Boot
-    - Spring Data JPA
-    - Spring Security
-    - JWT, OAuth2
- 
- - Database
-    - MySQL
- 
- - Cloud & DevOps
-    - AWS, GitHub Actions
+## 🔧 Tech Stack
+
+### 💻 Language
+- **Java 17**
+
+### 🧰 Framework & Libraries
+- **Spring Boot**
+- **Spring Data JPA**
+- **Spring Security**
+- **JWT**, **OAuth2**
+
+### 🗄️ Database
+- **MySQL**
+
+### ☁️ Cloud & DevOps
+- **AWS**
+- **GitHub Actions**
 
 ## 3. DB 설계
 
