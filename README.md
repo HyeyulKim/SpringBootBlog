@@ -61,4 +61,6 @@ Google OAuth2 로그인 및 JWT 인증 방식을 도입하여 보안을 강화�
 ![UI 2](https://github.com/user-attachments/assets/7e789d96-6d9f-456e-be70-0530a2bf70b6)
 ![UI 3](https://github.com/user-attachments/assets/0a73c314-8dcc-41d3-b39c-562a18d1955e)
 ![UI 4](https://github.com/user-attachments/assets/86991f04-c192-4986-a994-447039033813)
-![UI 5](https://github.com/user-attachments/assets/b3c5c761-25c5-4052-9d8b-3753903ba7c7)
+![UI 5](https://github.com/user-attachments/assets/c930d049-5167-4dee-9eff-aad8ba811c31)
+![UI 6](https://github.com/user-attachments/assets/0341f536-069d-43a5-8771-8d884e0fd2d5)
+
