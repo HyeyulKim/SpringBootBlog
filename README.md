@@ -1,10 +1,10 @@
-# 📝 SpringBootBlog
+# 📝 한줄 게시판
 
-Spring Boot 기반의 **개인 블로그 서비스**입니다.  
-Google OAuth2 로그인 및 JWT 인증 방식을 도입하여 보안을 강화하였으며,  
-게시글 CRUD 기능과 AWS 환경에서의 배포를 통해 실서비스와 유사한 백엔드 구조를 구현했습니다.
+Spring Boot 기반의 **게시판 서비스**입니다.  
+게시글 CRUD 기능을 가진 서비스를 AWS 환경에서 배포했습니다.
+Google OAuth2 로그인 및 JWT 인증 방식을 도입하여 보안을 강화하였습니다.  
 
-👉 [블로그 바로가기](http://springboot-blog-env.eba-upn4r5dq.ap-northeast-2.elasticbeanstalk.com/login)
+👉 [한줄 게시판 바로가기](http://springboot-blog-env.eba-upn4r5dq.ap-northeast-2.elasticbeanstalk.com/login)
 
 ---
 
@@ -15,6 +15,7 @@ Google OAuth2 로그인 및 JWT 인증 방식을 도입하여 보안을 강화�
   - 로그아웃
 - 📝 **게시글**
   - 작성 / 수정 / 삭제 / 조회
+  - 다른 사용자의 글이 포함된 전체 글 조회
 
 ---
 
