@@ -1,7 +1,7 @@
 # 📝 한줄 게시판
 
 Spring Boot 기반의 **게시판 서비스**입니다.  
-게시글 CRUD 기능을 가진 서비스를 AWS 환경에서 배포했습니다.
+게시글 CRUD 기능을 가진 서비스를 AWS 환경에서 배포했습니다.  
 Google OAuth2 로그인 및 JWT 인증 방식을 도입하여 보안을 강화하였습니다.  
 
 👉 [한줄 게시판 바로가기](http://springboot-blog-env.eba-upn4r5dq.ap-northeast-2.elasticbeanstalk.com/login)
