@@ -6,6 +6,10 @@ import me.hyeyul.springbootblog.dto.AddArticleRequest;
 import me.hyeyul.springbootblog.dto.ArticleResponse;
 import me.hyeyul.springbootblog.dto.UpdateArticleRequest;
 import me.hyeyul.springbootblog.service.BlogService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,14 +36,10 @@ public class BlogApiController {
     // /api/articles GET 요청이 오면 글 전체를 조회하는 findAll() 메서드를 호출
     // 응답용 객체인 ArticleResponse로 파싱해 body에 담아 클라이언트에게 전송
     @GetMapping("/api/articles")
-    public ResponseEntity<List<ArticleResponse>> findAllArticles() {
-        List<ArticleResponse> articles = blogService.findAll()
-                .stream()
-                .map(ArticleResponse::new)
-                .toList();
+    public ResponseEntity<Page<ArticleResponse>> findAllArticles(@PageableDefault(sort = "id", direction = Sort.Direction.DESC)Pageable pageable) {
+        Page<ArticleResponse> articles = blogService.findAll(pageable).map(ArticleResponse::new);
 
-        return ResponseEntity.ok()
-                .body(articles);
+        return ResponseEntity.ok(articles);
     }
 
     @GetMapping("/api/articles/{id}")

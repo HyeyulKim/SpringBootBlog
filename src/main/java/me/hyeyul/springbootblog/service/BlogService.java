@@ -1,13 +1,15 @@
 package me.hyeyul.springbootblog.service;
 
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import me.hyeyul.springbootblog.domain.Article;
 import me.hyeyul.springbootblog.dto.AddArticleRequest;
 import me.hyeyul.springbootblog.dto.UpdateArticleRequest;
 import me.hyeyul.springbootblog.repository.BlogRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,10 +24,18 @@ public class BlogService {
         return blogRepository.save(request.toEntity(userName));
     }
 
+    // paging 활용해 페이지 단으로 글 조회
+    @Transactional(readOnly = true)
+    public Page<Article> findAll(Pageable pageable){
+        return this.blogRepository.findAll(pageable);
+    }
+
     // article 테이블에 저장되어 있는 모든 데이터 조회
+    /*
     public List<Article> findAll() {
         return blogRepository.findAll();
     }
+     */
 
     // 블로그 글 하나 조회
     // JPA에서 제공하는 findById() 메서드를 사용해 ID를 받아 엔티티를 조회

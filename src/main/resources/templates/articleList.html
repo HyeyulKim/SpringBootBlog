@@ -17,18 +17,42 @@
             class="btn btn-secondary btn-sm mb-3">글 등록</button>
     <div class="row-6" th:each="item : ${articles}">
         <div class="card">
-            <div class="card-header" th:text="${item.id}">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span th:text="${item.id}"></span>
+                <a th:href="@{/articles/{id}(id=${item.id})}" class="btn btn-sm btn-primary">보러가기</a>
             </div>
             <div class="card-body">
                 <h5 class="card-title" th:text="${item.title}"></h5>
                 <p class="card-text" th:text="${item.content}"></p>
-                <a th:href="@{/articles/{id}(id=${item.id})}" class="btn btn-primary">보러가기</a>
             </div>
         </div>
         <br>
     </div>
 
-    <button type="button" class="btn btn-secondary" id="logout-btn">로그아웃</button>
+
+    <div th:if="${!articles.isEmpty()}">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" th:classappend="${!articles.hasPrevious} ? 'disabled'">
+                <a class="page-link"
+                    th:href="@{|?page=${articles.number-1}|}">
+                    <span>이전</span>
+                </a>
+            </li>
+            <li th:each="page: ${#numbers.sequence(0, articles.totalPages-1)}"
+                th:if="${page >= articles.number-5 and page <= articles.number+5}"
+                th:classappend="${page == articles.number} ? 'active'"
+                class="page-item">
+                    <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+            </li>
+            <li class="page-item" th:classappend="${!articles.hasNext} ? 'disabled'">
+                <a class="page-link" th:href="@{|?page=${articles.number+1}|}">
+                    <span>다음</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <button type="button" class="btn btn-secondary" id="logout-btn" style="margin-bottom: 16px;">로그아웃</button>
 </div>
 
 <script src="/js/token.js"></script>

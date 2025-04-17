@@ -5,6 +5,10 @@ import me.hyeyul.springbootblog.domain.Article;
 import me.hyeyul.springbootblog.dto.ArticleListViewResponse;
 import me.hyeyul.springbootblog.dto.ArticleViewResponse;
 import me.hyeyul.springbootblog.service.BlogService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,10 +24,8 @@ public class BlogViewController {
     private final BlogService blogService;
 
     @GetMapping("/articles")
-    public String getArticles(Model model) {
-        List<ArticleListViewResponse> articles = blogService.findAll().stream()
-                .map(ArticleListViewResponse::new)
-                .toList();
+    public String getArticles(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        Page<ArticleListViewResponse> articles = blogService.findAll(pageable).map(ArticleListViewResponse::new);
         model.addAttribute("articles", articles); // "articles" 키에 블로그 글 리스트 저장
 
         return "articleList"; // articleList.html라는 뷰 조회
