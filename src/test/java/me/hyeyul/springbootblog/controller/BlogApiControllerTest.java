@@ -29,6 +29,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -113,13 +114,14 @@ class BlogApiControllerTest {
 
         // when
         final ResultActions resultActions = mockMvc.perform(get(url)
-                .accept(MediaType.APPLICATION_JSON));
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print());
 
         // then
         resultActions
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].content").value(savedArticle.getContent()))
-                .andExpect(jsonPath("$[0].title").value(savedArticle.getTitle()));
+                .andExpect(jsonPath("$.content[0].content").value(savedArticle.getContent()))
+                .andExpect(jsonPath("$.content[0].title").value(savedArticle.getTitle()));
     }
 
     @DisplayName("findArticle: 블로그 글 조회에 성공한다.")
