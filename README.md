@@ -16,6 +16,7 @@ Google OAuth2 로그인 및 JWT 인증 방식을 도입하여 보안을 강화�
 - 📝 **게시글**
   - CRUD 기능
   - 전체 글 조회(다른 사용자의 글 포함)
+  - 페이징 처리
 
 ---
 
@@ -64,3 +65,7 @@ Google OAuth2 로그인 및 JWT 인증 방식을 도입하여 보안을 강화�
 ![UI 4](https://github.com/user-attachments/assets/13a35b66-97f0-4317-8537-84006f5c7fbe)  
 ![UI 5](https://github.com/user-attachments/assets/33b8c721-62fc-4cbd-a1b2-c90d698ac109)  
 ![UI 6](https://github.com/user-attachments/assets/094a06e1-6b66-41c4-bb85-7aa25f76344b)  
+![UI 7](https://github.com/user-attachments/assets/ce9a8065-b463-4502-a6c0-6e422fba38fc)
+![UI 8](https://github.com/user-attachments/assets/1e1d90e4-b7a9-4941-82d4-4ef8035bed81)
+
+
