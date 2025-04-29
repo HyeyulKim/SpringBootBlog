@@ -41,6 +41,26 @@ Google OAuth2 로그인 및 JWT 인증 방식을 도입하여 보안을 강화�
 
 ---
 
+## 🗂️ ERD 설계
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/cb083ef9-aeea-4058-b62f-da1b0a6176f7" alt="ERD 설계 이미지" width="700"/>
+</p>
+
+### 테이블 설명
+
+| 테이블명 | 설명 |
+|:---------|:-----|
+| Users    | 사용자 정보를 저장하는 테이블 |
+| Articles | 게시글 정보를 저장하는 테이블 |
+| Comments | 게시글에 달리는 댓글 정보를 저장하는 테이블 |
+
+- 사용자(User)는 여러 개의 게시글(Article)을 작성할 수 있습니다.
+- 게시글(Article)에는 여러 개의 댓글(Comment)이 연결될 수 있습니다.
+- 삭제 및 수정 시 관계를 고려하여 Cascade 정책을 적용하였습니다.
+
+---
+
 ## 🗂️ DB 설계
 
 ![ERD 1](https://github.com/user-attachments/assets/68a66706-1984-4824-852b-92468223a6fd)  
